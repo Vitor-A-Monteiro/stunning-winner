@@ -1,0 +1,79 @@
+/* PibTable.module.css */
+
+.tableContainer {
+    width: 95%; /* Use uma largura percentual para responsividade */
+    margin: 20px auto; /* Centraliza a tabela */
+    overflow-x: auto; /* Permite rolagem horizontal em telas pequenas */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaçamento entre as células */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    border-radius: 5px;
+    overflow: hidden; /* Garante que a sombra e o border-radius funcionem corretamente */
+  }
+  
+  thead {
+    background-color: #f2f2f2; /* Cinza claro para o cabeçalho */
+  }
+  
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Linha separando as linhas */
+  }
+  
+  th {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Cor diferente para linhas pares */
+  }
+  
+  tbody tr:hover {
+    background-color: #e9e9e9; /* Destaque ao passar o mouse */
+    transition: background-color 0.2s ease; /* Suaviza a mudança de cor */
+  }
+  
+  /* Estilos para telas menores (responsividade) */
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    thead {
+      display: none; /* Esconde o cabeçalho em telas muito pequenas */
+    }
+  
+    tr {
+      margin-bottom: 10px;
+      display: block; /* Faz com que cada linha seja um bloco */
+      border-bottom: 2px solid #ddd; /* Adiciona uma linha inferior mais forte */
+    }
+  
+    td {
+      display: block; /* Cada célula ocupa uma linha inteira */
+      text-align: right;
+      font-size: 0.9em;
+      border-bottom: 1px dotted #ccc;
+    }
+  
+    td::before {
+      /* Adiciona o nome da coluna antes do valor (para melhor identificação) */
+      content: attr(data-label);
+      float: left;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 0.8em;
+      letter-spacing: 0.1em;
+    }
+  
+    td:last-child {
+      border-bottom: 0;
+    }
+  }

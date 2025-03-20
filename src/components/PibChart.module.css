@@ -1,0 +1,55 @@
+/* PibChart.module.css */
+
+.chartContainer {
+    width: 95%; /* Responsividade */
+    max-width: 1200px; /* Limita a largura máxima em telas grandes */
+    margin: 20px auto; /* Centraliza o gráfico */
+    padding: 20px;
+    background-color: #fff; /* Fundo branco */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+  
+  /* Estilizando o título do gráfico (se você não estiver usando o título do Chart.js) */
+  .chartTitle {
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilos para a legenda (se você precisar posicionar/estilizar a legenda manualmente) */
+  .chartLegend {
+    display: flex;
+    justify-content: center; /* Centraliza os itens da legenda */
+    margin-top: 10px;
+  }
+  
+  .legendItem {
+    margin: 0 10px;
+    font-size: 0.9em;
+    color: #666;
+  }
+  
+  /* Pequenos ajustes para melhor responsividade (se necessário) */
+  @media (max-width: 768px) {
+    .chartContainer {
+      padding: 10px; /* Reduz o padding em telas menores */
+    }
+    .chartTitle {
+      font-size: 1.2em; /* Reduz o tamanho do título */
+    }
+  }
+  
+  /* Estilos opcionais para as cores das linhas (se você quiser sobrescrever as cores padrão do Chart.js) */
+  /*
+  .chartLine1 {
+    background-color: rgba(255, 99, 132, 0.2);
+    border-color: rgb(255, 99, 132);
+  }
+  
+  .chartLine2 {
+    background-color: rgba(54, 162, 235, 0.2);
+    border-color: rgb(54, 162, 235);
+  }
+  */
