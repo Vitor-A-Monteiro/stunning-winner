@@ -10,11 +10,11 @@ test('renders the chart with the provided data', () => {
 
   render(<ChartPIB data={data} />);
 
-  // Verifica se o ano '2020' é exibido no gráfico
+ 
   const year2020Element = screen.getByText('2020');
   expect(year2020Element).toBeInTheDocument();
 
-  // Verifica se o ano '2021' é exibido no gráfico
+ 
   const year2021Element = screen.getByText('2021');
   expect(year2021Element).toBeInTheDocument();
 });
