@@ -26,12 +26,12 @@ describe('GraphPage', () => {
       { ano: '2021', pibTotal: 1200, pibPerCapita: 600 },
     ];
 
-    // Configura o mock para retornar os dados mockados
+   
     ibgeService.default.mockResolvedValue(mockData);
 
     render(<GraphPage />);
 
-    // Espera que os dados sejam carregados e exibidos
+    
     await waitFor(() => {
       expect(screen.getByText('2020')).toBeInTheDocument();
       expect(screen.getByText('2021')).toBeInTheDocument();
