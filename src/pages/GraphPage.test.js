@@ -2,22 +2,22 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import GraphPage from './GraphPage';
-import * as ibgeService from '../services/ibgeService'; // Importa o módulo ibgeService
+import * as ibgeService from '../services/ibgeService'; 
 
-// Mock da função fetchData do ibgeService
+
 jest.mock('../services/ibgeService', () => ({
-  __esModule: true, // Importante para o Jest entender o mock
-  default: jest.fn() // Mocks a função default (fetchData)
+  __esModule: true, 
+  default: jest.fn() 
 }));
 
 describe('GraphPage', () => {
   it('should display loading message while data is being fetched', () => {
-    // Configura o mock para a função fetchData
+  
     ibgeService.default.mockResolvedValue([]);
 
     render(<GraphPage />);
 
-    expect(screen.getByText(/carregando/i)).toBeInTheDocument(); // Verifica se a mensagem de carregamento está presente
+    expect(screen.getByText(/carregando/i)).toBeInTheDocument(); 
   });
 
   it('should display data when data is successfully fetched', async () => {
@@ -39,12 +39,12 @@ describe('GraphPage', () => {
   });
 
   it('should display error message when data fetching fails', async () => {
-    // Configura o mock para simular um erro na requisição
+  
     ibgeService.default.mockRejectedValue(new Error('API Error'));
 
     render(<GraphPage />);
 
-    // Espera que a mensagem de erro seja exibida
+   
     await waitFor(() => {
       expect(screen.getByText(/erro ao carregar os dados/i)).toBeInTheDocument();
     });
