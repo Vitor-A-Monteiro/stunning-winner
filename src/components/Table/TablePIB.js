@@ -20,7 +20,7 @@ const Td = styled.td`
 `;
 
 const TablePIB = React.memo(({ data }) => {
-  console.log("TablePIB component rendered"); // Adicione este log para verificar se o componente está sendo renderizado
+  console.log("TablePIB component rendered"); 
 
   return (
     <Table>
