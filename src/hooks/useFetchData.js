@@ -12,7 +12,7 @@ const useFetchData = (url) => {
         const response = await axios.get(url);
         setData(response.data);
       } catch (err) {
-        setError(err); // Retorna o objeto de erro completo
+        setError(err); 
       } finally {
         setLoading(false);
       }
