@@ -14,7 +14,7 @@ const TablePage = () => {
   }
 
   if (error) {
-    let errorMessage = 'Erro ao carregar os dados. Por favor, tente novamente.'; // Mensagem padrão
+    let errorMessage = 'Erro ao carregar os dados. Por favor, tente novamente.'; 
     if (error.response && error.response.status === 500) {
       errorMessage = 'Erro no servidor do IBGE. Por favor, tente novamente mais tarde.';
     }
