@@ -19,7 +19,9 @@ const Td = styled.td`
   border: 1px solid #ddd;
 `;
 
-const TablePIB = ({ data }) => {
+const TablePIB = React.memo(({ data }) => {
+  console.log("TablePIB component rendered"); // Adicione este log para verificar se o componente está sendo renderizado
+
   return (
     <Table>
       <thead>
@@ -40,6 +42,6 @@ const TablePIB = ({ data }) => {
       </tbody>
     </Table>
   );
-};
+});
 
 export default TablePIB;

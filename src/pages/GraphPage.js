@@ -1,35 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import ChartPIB from '../components/ChartPIB';
-import fetchData from '../services/ibgeService';
+import React from 'react';
+import ChartPIB from '../components/Chart/ChartPIB';
+import useFetchData from '../hooks/useFetchData';
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
 
+const API_URL = 'https://servicodados.ibge.gov.br/api/v3/agregados/73/periodos/-60/variaveis/9286,9287?localidades=1';
+
 const GraphPage = () => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const fetchedData = await fetchData();
-        setData(fetchedData);
-      } catch (err) {
-        setError('Erro ao carregar os dados. Por favor, tente novamente.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadData();
-  }, []);
+  const { data, loading, error } = useFetchData(API_URL);
 
   if (loading) {
     return <Loading />;
   }
 
   if (error) {
-    return <ErrorMessage message={error} />;
+    let errorMessage = 'Erro ao carregar os dados. Por favor, tente novamente.'; // Mensagem padrão
+    if (error.response && error.response.status === 500) {
+      errorMessage = 'Erro no servidor do IBGE. Por favor, tente novamente mais tarde.';
+    }
+
+    return <ErrorMessage message={errorMessage} />;
   }
 
   return (
