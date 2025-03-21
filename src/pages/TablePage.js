@@ -1,5 +1,5 @@
 import React from 'react';
-import TablePIB from '../components/Table/TablePIB'; // Importe TablePIB
+import TablePIB from '../components/Table/TablePIB'; 
 import useFetchData from '../hooks/useFetchData';
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
